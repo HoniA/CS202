@@ -1,0 +1,78 @@
+#include <iostream>
+#include <fstream>
+#include <stdexcept>
+using namespace std;
+
+void inputFileName();
+bool strComp(char one[], char other[]);
+void checkArguments();
+
+int main(int argc, char* argv[])
+{
+
+try
+	{
+	checkArguments();
+	}
+
+catch (runtime_error error)
+	{
+	cout << error <<endl;
+	}
+
+try
+	{
+	inputFileName();
+	}
+
+catch (runtime_error error)
+	{
+	cout << error <<endl;
+	}
+
+
+
+return 0;
+}
+
+void inputFileName(argv)
+{
+ifstream fin;
+//string message;
+
+if (strComp (argv[1], "file") == false)
+	{
+	throw runtime_error("Could not open file exception");
+	}
+
+fin.clear();
+fin.open(argv[1]);
+//fin >> message;
+//cout << message;
+}
+
+bool strComp( char one[], char other[])
+{
+int index = 0;
+
+while (one[index] != NULL && other[index] != NULL)
+	{
+	if (one[index] = other [index])
+		{
+		return true;
+		}
+	index++;
+	return false;
+	}
+
+return false;
+}
+
+void checkArguments()
+{
+if (argc > 2)
+	{
+	throw runtime_error("Invalid number of arguments exception");
+	} 
+
+}
